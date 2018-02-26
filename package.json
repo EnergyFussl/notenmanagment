@@ -1,0 +1,23 @@
+{
+  "name": "notenmanagment",
+  "version": "1.0.0",
+  "description": "Projekt der 5AHELS von Lukas Friedl und Alexander Leimer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnergyFussl/notenmanagment.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EnergyFussl/notenmanagment/issues"
+  },
+  "homepage": "https://github.com/EnergyFussl/notenmanagment#readme",
+  "dependencies": {
+    "request": "^2.83.0"
+  }
+}
