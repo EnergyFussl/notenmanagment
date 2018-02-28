@@ -1,11 +1,3 @@
-Typ
-fach
-datum
-schueler
-note
-punkte
-bemerkung
-
 create table faecher(
 	fid int not null auto_increment,
         primary key(fid),
