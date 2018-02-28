@@ -118,7 +118,7 @@ insert into klassen values
 	(null,'1AFEL'),
 	(null,'2AFEL'),
 	(null,'3AFEL'),
-	(null,'4AFEL'),
+	(null,'4AFEL');
 
 insert into faecher values
 	(null,"FSST"),
