@@ -7,7 +7,7 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 let connection = mysql.createConnection({
-    host: "localhost",
+    host: "10.0.0.10",
     user: "notenmanagment",
     password: "0pVDuG3OG8gi50lu",
     database: "notenmanagment"
