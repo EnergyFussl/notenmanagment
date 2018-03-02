@@ -1,16 +1,30 @@
-create table faecher(
+Typ
+fach
+datum
+schueler
+note
+punkte
+bemerkung
+
+drop table subjects;
+drop table classes;
+drop table checks;
+drop table students;
+drop table results;
+
+create table subjects(
 	fid int not null auto_increment,
-        primary key(fid),
+    primary key(fid),
 	fach varchar(10)
 );
 
-create table klassen(
+create table classes(
 	kid int not null auto_increment,
 	primary key(kid),
 	klasse varchar(10)
 );
 
-create table ueberprufungen(
+create table checks(
 	tid int not null auto_increment,
 	kid int,
 	fid int,
@@ -20,7 +34,7 @@ create table ueberprufungen(
 	datum date
 );
 
-create table schueler(
+create table students(
 	sid int not null,
 	kid int,
 	primary key(sid,kid),
@@ -28,16 +42,17 @@ create table schueler(
 	lastname varchar(50)
 );
 
-create table ergebnisse(
+create table results(
 	sid int,
 	tid int,
+	fid int,
 	primary key(sid,tid),
 	note int not null,
 	punkte varchar(20),
 	bemerkung varchar(50)
 );
 
-insert into schueler values 
+insert into students values 
 	(1,1,'Arastu','Moatazedy'),
 	(2,1,'Wolfgang','Schwendtbauer'),
 	(3,1,'Leon','Stempfer'),
@@ -64,7 +79,7 @@ insert into schueler values
 	(21,4,'Philipp','Weiß');
 
 
-insert into klassen values
+insert into classes values
 	(null,'1AHELS'),
 	(null,'2AHELS'),
 	(null,'3AHELS'),
@@ -112,7 +127,7 @@ insert into klassen values
 	(null,'3AFEL'),
 	(null,'4AFEL');
 
-insert into faecher values
+insert into subjects values
 	(null,"FSST"),
 	(null,"SEN");
 
