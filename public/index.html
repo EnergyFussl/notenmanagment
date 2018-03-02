@@ -8,90 +8,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
+  
+    <style>
+      .navbar-material .nav-wrapper .brand-logo img {
+        height: 55px;
+        margin-top:3%;
+        margin-bottom: 3%;
+    }
+
+    @media (max-width: 600px) {
+      .navbar-material .nav-wrapper .brand-logo img {
+        margin-top: 5px;
+        height: 45px;
+      }
+    }
+    </style>
     <div id="navDiv">
 
     </div>
-    <!--
-    <div class="row">
-      <div class="col">
 
-      </div>
-    </div>-->
-
-    <!--<a class='dropdown-button btn' href='#' data-activates='dropdownAHELS'>AHELS</a>
-    <ul id='dropdownAHELS' class='dropdown-content'>
-    </ul>
-    <a class='dropdown-button btn' href='#' data-activates='dropdownBHELS'>BHELS</a>
-    <ul id='dropdownBHELS' class='dropdown-content'>
-    </ul>
-    <a class='dropdown-button btn' href='#' data-activates='dropdownCHELS'>CHELS</a>
-    <ul id='dropdownCHELS' class='dropdown-content'>
-    </ul>
-
--->
   
-       
-    <a class='dropdown-button btn' style="width:100%" href='#' data-activates='dropdownKlasse'>Klassen</a>
-    <ul id='dropdownKlasse' class='dropdown-content'>
+    <div class='container'>
+      <div class = 'col'>
+        <a class='dropdown-button btn'  style=width:100% href='#' data-activates='dropdownKlasse'>Klassen</a>
+      </div>
+    </div>
+  <div class='container'>
+    <div class = 'col'>
+     <ul id='dropdownKlasse' class='dropdown-content'>
             <table>
                     <tbody>
                       <tr>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1AHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1BHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1CHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1DHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1AHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1BHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1AHET</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">1AFEL</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1AHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1BHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1CHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1DHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1AHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1BHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1AHET</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">1AFEL</a></td>
                       </tr>
                       <tr>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2AHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2BHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2CHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2DHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2AHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2BHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2AHET</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">2AFEL</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2AHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2BHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2CHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2DHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2AHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2BHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2AHET</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">2AFEL</a></td>
                       </tr>
                       <tr>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3AHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3BHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3CHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3DHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3AHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3BHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3AHET</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">3AFEL</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3AHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3BHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3CHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3DHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3AHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3BHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3AHET</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">3AFEL</a></td>
                       </tr>
                       <tr>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4AHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4BHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4CHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4DHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4AHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4BHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4AHET</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">4AFEL</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4AHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4BHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4CHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4DHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4AHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4BHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4AHET</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">4AFEL</a></td>
                     </tr>
                     <tr>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5AHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5BHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5CHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5DHELS</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5AHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5BHMEA</a></td>
-                        <td><li><a onclick="klassepressed(this)" href="#!">5AHET</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5AHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5BHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5CHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5DHELS</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5AHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5BHMEA</a></td>
+                        <td><li><a onclick="klassepressed(this)" href="#klasse">5AHET</a></td>
                       </tr>
                     </tbody>
                   </table>
                 
     </ul>
+  </div>
+</div>
    
     
 
     <div id="TestTabelle"></div>
+
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
