@@ -1,0 +1,5 @@
+alle klassen
+alle fächer einer klasse
+alle überprüfungen (fach join und notendurchschnitt) einer klasse
+alle ergebnisse (mit überprüfungen join) einer klasse
+alle ergebnisse (mit überprüfungen join) eines schülers
