@@ -46,7 +46,7 @@ create table results(
 	sid int,
 	tid int,
 	fid int,
-	primary key(sid,tid),
+	primary key(sid,tid,fid),
 	note int not null,
 	punkte varchar(20),
 	bemerkung varchar(50)
@@ -128,6 +128,28 @@ insert into classes values
 	(null,'4AFEL');
 
 insert into subjects values
-	(null,"FSST"),
-	(null,"SEN");
+	(null,'FSST'),
+	(null,'SEN');
 
+insert into checks values
+	(null,1,1,'SMÜP','Amplitudenmodulation','2018-01-09'),
+	(null,1,2,'Test','SQL und Node.js','2018-02-13'),
+	(null,2,1,'Test','4-PSK Verfahren','2018-03-05'),
+	(null,2,3,'Schularbeit','Wahrscheinlichkeitsrechnung','2017-12-15');
+
+insert into results values
+	(1,1,1,3,'10/14',''),
+	(2,1,1,5,'2/14','Leider nicht gelungen!'),
+
+	(1,2,2,4,'12/24',''),
+	(2,2,2,3,'15/24',''),
+	(3,2,2,1,'24/24','100% Bravo'),
+	
+
+	(1,3,3,4,'12/24','Prüfung am 8.3.2018'),
+	(2,3,3,3,'15/24',''),
+	(3,3,3,1,'24/24',''),
+
+	(1,3,4,5,'8/30','Leider wieder nichts -> Frühwarnung'),
+	(2,3,4,2,'24/30',''),
+	(3,3,4,3,'19/30','');
