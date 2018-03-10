@@ -22,7 +22,7 @@ init()
 
 function activeTab() {
     
-      return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="#info">KlassenInfo</a></li><li><a href="#suche">Suche</a></li><li><a href="#hinz">Test Hinzufügen</a></li>'
+      return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="./index.html">KlassenInfo</a></li><li><a href="./suche.html">Suche</a></li><li><a href="./testhinz.html">Test Hinzufügen</a></li>'
     
 }
 function goBack() {
@@ -113,5 +113,12 @@ function fachpressed(name,fachauswahl){
     htmlTxt+=" </tbody> </table></div></div>"
     let divEl=document.getElementById('TestTabelle')
     divEl.innerHTML=htmlTxt
+
+}
+function dateneintragen(){
+    let divEl = document.getElementById('main')
+    let htmlTxt='<form class="col s12"><div class="row"><div class="input-field col s6" id="schuelernamen"><div class="row"><div class="input-field col s6 s6"><select class="browser-default"><option value="" disabled selected>Schueler auswählen</option><option value="1">Sep</option><option value="2">Franz</option><option value="3">Hans</option></select></div></div><div class="row"><div class="input-field col s6"><input id="note" type="number" class="validate"><label for="note">Note</label></div></div><div class="row"><div class="input-field col s6"><input id="punkte" type="text" class="validate"><label for="punkte">Punkte</label></div></div><div class="row"><div class="input-field col s6"><input id="bemerkung" type="text" class="validate"><label for="bemerkung">Bemerkung</label></div><div class="input-field col s6"><button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i></button></div></div></form>'
+    divEl.innerHTML=htmlTxt
+    //Matejka fragen wegen Schueler Noten eintragen altes System
 
 }
