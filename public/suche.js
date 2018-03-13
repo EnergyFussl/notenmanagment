@@ -20,6 +20,8 @@ fach =[
 init()
 //<a onclick="goBack()"class="btn waves-effect waves-light"><i class="material-icons middle">arrow_back</i></a></li>
 
+
+
 function activeTab() {
     
       return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="./index.html">KlassenInfo</a></li><li><a href="./suche.html">Suche</a></li><li><a href="./testhinz.html">Test Hinzufügen</a></li>'
@@ -34,7 +36,7 @@ function init() {
 
 }
 function getcolor(){
-    return "blue"
+    return "teal"
 }
 
 function klassepressed(buttonEl){

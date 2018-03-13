@@ -34,7 +34,7 @@ function init() {
 
 }
 function getcolor(){
-    return "blue"
+    return "red"
 }
 
 function klassepressed(buttonEl){
