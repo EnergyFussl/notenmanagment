@@ -1,9 +1,9 @@
 
 test=[
-    {"TID":"0","Typ":"Test", "Fach":"Fsst", "Info":"Datenbank","Datum":"20.2.2018","Notendurchschnitt":"3,2"},
+    /*{"TID":"0","Typ":"Test", "Fach":"Fsst", "Info":"Datenbank","Datum":"20.2.2018","Notendurchschnitt":"3,2"},
     {"TID":"1","Typ":"SA", "Fach":"Mathe","Datum":"15.2.2018","Notendurchschnitt":"2,2"},
     {"TID":"2","Typ":"SMÜP", "Fach":"Englisch","Datum":"20.2.2018","Notendurchschnitt":"2,8"},
-    {"TID":"3","Typ":"Test", "Fach":"KSN","Datum":"24.2.2018","Notendurchschnitt":"3,6"}
+    {"TID":"3","Typ":"Test", "Fach":"KSN","Datum":"24.2.2018","Notendurchschnitt":"3,6"}*/
 ]
 noten=[
     {"SID":"0","Name":"Sepp", "Note":"4","Punkte":"12/20","Bemerkung":""},
@@ -17,7 +17,52 @@ fach =[
     {"FID":"2","Name":"Englisch"},
     {"FID":"3","Name":"KSN"}
 ]
+klassen=[
+    /*{"kid":1,"klasse":"1AHELS"},
+    {"kid":2,"klasse":"2AHELS"},
+    {"kid":3,"klasse":"3AHELS"},
+    {"kid":4,"klasse":"4AHELS"},
+    {"kid":5,"klasse":"5AHELS"},
+    {"kid":6,"klasse":"1BHELS"},
+    {"kid":7,"klasse":"2BHELS"},
+    {"kid":8,"klasse":"3BHELS"},
+    {"kid":9,"klasse":"4BHELS"},
+    {"kid":10,"klasse":"5BHELS"},
+    {"kid":11,"klasse":"1CHELS"},
+    {"kid":12,"klasse":"2CHELS"},
+    {"kid":13,"klasse":"3CHELS"},
+    {"kid":14,"klasse":"4CHELS"},
+    {"kid":15,"klasse":"5CHELS"},
+    {"kid":16,"klasse":"1DHELS"},
+    {"kid":17,"klasse":"2DHELS"},
+    {"kid":18,"klasse":"3DHELS"},
+    {"kid":19,"klasse":"4DHELS"},
+    {"kid":20,"klasse":"5DHELS"},
+    {"kid":21,"klasse":"1AHMEA"},
+    {"kid":22,"klasse":"2AHMEA"},
+    {"kid":23,"klasse":"3AHMEA"},
+    {"kid":24,"klasse":"4AHMEA"},
+    {"kid":25,"klasse":"5AHMEA"},
+    {"kid":26,"klasse":"1BHMEA"},
+    {"kid":27,"klasse":"2BHMEA"},
+    {"kid":28,"klasse":"3BHMEA"},
+    {"kid":29,"klasse":"4BHMEA"},
+    {"kid":30,"klasse":"5BHMEA"},
+    {"kid":31,"klasse":"1AHET"},
+    {"kid":32,"klasse":"2AHET"},
+    {"kid":33,"klasse":"3AHET"},
+    {"kid":34,"klasse":"4AHET"},
+    {"kid":35,"klasse":"5AHET"},
+    {"kid":36,"klasse":"1AFEL"},
+    {"kid":37,"klasse":"2AFEL"},
+    {"kid":38,"klasse":"3AFEL"},
+    {"kid":39,"klasse":"4AFEL"}*/
+]
+
+
 init()
+//console.log(test)
+ 
 //<a onclick="goBack()"class="btn waves-effect waves-light"><i class="material-icons middle">arrow_back</i></a></li>
 
 function activeTab() {
@@ -29,36 +74,14 @@ function goBack() {
     window.history.back();
 }
 function init() {
+    getclass()
 
-    //updatePersonData()
 
 }
 function getcolor(){
     return "teal"
 }
 
-function klassepressed(buttonEl){
-    let divel = document.getElementById('TestTabelle')
-    let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Typ</td> <td>Fach</th> <th>Datum</th> <th>Notendurchschnitt</th> <th> </th> </tr> </thead> <tbody>'
-    for(i =0;i<test.length;i++){
-        htmlTxt+="<tr> <td>"+test[i].Typ+"</td> <td>"+test[i].Fach+"</td> <td>"+test[i].Datum+"</td> <td>"+test[i].Notendurchschnitt+"</td> <td><button onclick='testclicked()'>Ansehen</button> </td> </tr>"
-    }
-    htmlTxt+= " </tbody> </table></div></div>"
-    divel.innerHTML=htmlTxt
-}
-
-/*function Klassendropdown(){
-     // console.log(buttonEl)
-      
-      let htmlTxt='<li><a onclick="klassepressed(this)" href="Klassenauswahl">1AHELS</a></li> <li><a onclick="klassepressed(this)" href="#!">2AHELS</a></li> <li><a onclick="klassepressed(this)" href="#!">3AHELS</a></li> <li><a onclick="klassepressed(this)" href="#!">4AHELS</a></li> <li><a onclick="klassepressed(this)" href="#!">5AHELS</a></li>'
-      let divEl=document.getElementById('dropdownAHELS')
-      divEl.innerHTML=htmlTxt  
-}
-function klassepressedtest(buttonEl){
-    let divel = document.getElementById('TestTabelle')
-    let htmlTxt = '<ul class="collapsible" data-collapsible="accordion"> <li> <div class="collapsible-header"> <i class="material-icons">filter_drama</i> KSN <span class="new badge">4</span></div> <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> </li> <li> <div class="collapsible-header"> <i class="material-icons">place</i> Englisch <span class="badge">1</span></div> <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div> </li> </ul>'
-    divel.innerHTML=htmlTxt
-}*/
 function testclicked(){
     let divel = document.getElementById('TestTabelle')
     let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Name</th> <th>Note</th> <th>Punkte</th> <th>Bemerkung</th> </tr> </thead> <tbody>'
@@ -125,3 +148,103 @@ function dateneintragen(){
     //Matejka fragen wegen Schueler Noten eintragen altes System
 
 }
+function getclass() {
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("GET", "/api/get_all-classes/");
+    httpReq.onload = function () {
+        if (this.status == 200) {
+            klassen = JSON.parse(this.responseText)
+            console.log(klassen)
+            drawclasstable()
+        } else {
+            console.log('Response code ' + this.status)
+        }
+    };
+    httpReq.onerror = function () {
+        console.log("Error ")
+    };
+    httpReq.send()
+}
+function drawclasstable(){
+    let divEl = document.getElementById('dropdownKlasse')
+    console.log(divEl)
+    let htmlTxt = "<table><tbody>"
+    let z=-1
+    for(let i=0;i<7;i++){
+        htmlTxt+="<tr>"
+        for(let j=0;j<5;j++){
+            z++
+            htmlTxt+='<td><li><a onclick="klassepressed(this,'+klassen[z].kid+')" href="#klasse">'+klassen[z].klasse+'</a></td>'
+
+        }       
+        htmlTxt+="</tr>"
+    }
+    htmlTxt+="<tr>"
+    for(let i=0;i<4;i++){
+        z++
+        htmlTxt+='<td><li><a onclick="klassepressed(this,'+klassen[z].kid+')" href="#klasse">'+klassen[z].klasse+'</a></td>'
+    }
+    htmlTxt+="</tr></tbody></table>"
+    divEl.innerHTML=htmlTxt
+}
+function klassepressed(buttonEl,klassenid){
+    gettest(klassenid)
+    
+}
+function drawtest(){
+    let divel = document.getElementById('TestTabelle')
+    let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Typ</td> <th>Fach</th> <th>Thema</th> <th>Datum</th> <th>Notendurchschnitt</th> <th> </th> </tr> </thead> <tbody>'
+    for(i =0;i<test.length;i++){
+        htmlTxt+="<tr> <td>"+test[i].typ+"</td> <td>"+test[i].fach+"</td> <td>"+test[i].bezeichnung+"</td> <td>"+test[i].datum+"</td> <td>"+test[i].average+"</td> <td><button onclick='testclicked("+test[i].tid+")'>Ansehen</button> </td> </tr>"
+    }
+    htmlTxt+= " </tbody> </table></div></div>"
+    divel.innerHTML=htmlTxt
+}
+function gettest(klassenid) {
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("GET", "/api/get_classchecks/"+klassenid);
+    httpReq.onload = function () {
+        if (this.status == 200) {
+            test = JSON.parse(this.responseText)
+            console.log(test)
+            drawtest()  
+        } else {
+            console.log('Response code ' + this.status)
+        }
+    };
+    httpReq.onerror = function () {
+        console.log("Error ")
+    };
+    httpReq.send()
+}
+function geterg(testid) {
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("GET", "/api/get_results/"+testid);
+    httpReq.onload = function () {
+        if (this.status == 200) {
+            noten = JSON.parse(this.responseText)
+            console.log(noten)
+            drawerg(testid)  
+        } else {
+            console.log('Response code ' + this.status)
+        }
+    };
+    httpReq.onerror = function () {
+        console.log("Error ")
+    };
+    httpReq.send()
+}
+function testclicked(testid){
+    geterg(testid)
+
+}
+function drawerg(testid){
+    let divel = document.getElementById('TestTabelle')
+    let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Name</th> <th>Note</th> <th>Punkte</th> <th>Bemerkung</th> </tr> </thead> <tbody>'
+    for(i =0;i<noten.length;i++){
+        htmlTxt+="<tr> <td onclick='namepressed("+noten[i].sid+")'>"+"<p>"+noten[i].fullname+"</p>"+"</td> <td>"+noten[i].note+"</td> <td>"+noten[i].punkte+"</td> <td>"+noten[i].bemerkung+"</td></tr>"
+    }
+    htmlTxt+= " </tbody> </table></div></div>"
+    divel.innerHTML=htmlTxt
+}
+
