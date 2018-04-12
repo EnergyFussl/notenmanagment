@@ -8,11 +8,12 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 let connection = mysql.createConnection({
-    host: "10.8.250.67",
+    host: "web02.energyfussl.at",
     //host: "192.168.0.24",
-    user: "notenmanagment",
+    user: "lfrie_note",
     password: "0pVDuG3OG8gi50lu",
-    database: "notenmanagment"
+    database: "lfriedl_note",
+    multipleStatements : true
 
 })
 

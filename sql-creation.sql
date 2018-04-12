@@ -29,7 +29,7 @@ create table checks(
 	kid int,
 	fid int,
 	primary key(tid,kid,fid),
-	typ varchar(10),
+	typ varchar(15),
 	bezeichnung varchar(50),
 	datum date
 );
@@ -133,6 +133,7 @@ insert into subjects values
 
 insert into checks values
 	(null,1,1,'SMÜP','Amplitudenmodulation','2018-01-09'),
+	(null,1,1,'Test','Netzwerkverfahren', '2018-03-13'),
 	(null,1,2,'Test','SQL und Node.js','2018-02-13'),
 	(null,2,1,'Test','4-PSK Verfahren','2018-03-05'),
 	(null,2,3,'Schularbeit','Wahrscheinlichkeitsrechnung','2017-12-15');
