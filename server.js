@@ -115,7 +115,7 @@ app.get('/api/get_classchecks/:kid', function (req, res) {
 });
 
 app.get('/api/get_results/:tid', function (req, res) {
-    let query = 'select st.sid, CONCAT_WS(" ", `firstname`, `lastname`) AS `fullname`, kl.kid, kl.klasse, re.note, re.bemerkung, te.tid, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach ' + 
+    let query = 'select st.sid, CONCAT_WS(" ", `firstname`, `lastname`) AS `fullname`, kl.kid, kl.klasse, re.note, re.bemerkung, re.punkte, te.tid, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach ' + 
     'from students as st join results as re join checks as te join classes as kl join subjects as fa ' +
     'on re.sid = st.sid and re.tid = te.tid and st.kid = te.kid ' +
     'and kl.kid = st.kid and fa.fid = te.fid where te.tid = ' + req.params.tid
