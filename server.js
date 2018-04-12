@@ -8,8 +8,8 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 let connection = mysql.createConnection({
-    //host: "10.8.250.58",
-    host: "192.168.0.24",
+    host: "10.8.250.67",
+    //host: "192.168.0.24",
     user: "notenmanagment",
     password: "0pVDuG3OG8gi50lu",
     database: "notenmanagment"
@@ -72,8 +72,8 @@ app.get('/api/get_subjects-from-classes/:kid', function (req, res) {
 });
 
 app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
-    let query = 'select te.tid, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach, kl.kid, kl.klasse ' +
-    'from checks as te join subjects as fa join classes as kl ' +
+    let query = 'select te.tid, te.typ, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach, kl.kid, kl.klasse, avg(note) as average ' +
+    'from checks as te join subjects as fa join classes as kl join results as re ' +
     'on te.kid = kl.kid and te.fid = fa.fid ' +
     'where kl.kid = ? and fa.fid = ' + req.params.fid
 
@@ -113,9 +113,8 @@ app.get('/api/get_classchecks/:kid', function (req, res) {
     })
 });
 
-/*
 app.get('/api/get_results/:tid', function (req, res) {
-    let query = 'select st.sid, CONCAT_WS(" ", `firstname`, `lastname`) AS `fullname`, kl.kid, kl.klasse, re.note, re.bemerkung, te.tid, te.bezeichnung, date_format(t.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach ' + 
+    let query = 'select st.sid, CONCAT_WS(" ", `firstname`, `lastname`) AS `fullname`, kl.kid, kl.klasse, re.note, re.bemerkung, te.tid, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach ' + 
     'from students as st join results as re join checks as te join classes as kl join subjects as fa ' +
     'on re.sid = st.sid and re.tid = te.tid and st.kid = te.kid ' +
     'and kl.kid = st.kid and fa.fid = te.fid where te.tid = ' + req.params.tid
@@ -135,7 +134,7 @@ app.get('/api/get_results/:tid', function (req, res) {
             res.send(sendjson)
         }
     })
-});*/
+});
 
 // Auf diesen Port antwortet der Server
 app.listen(3000, function () {
