@@ -99,7 +99,7 @@ app.get('/api/get_classchecks/:kid', function (req, res) {
     'on te.kid = kl.kid and te.fid = fa.fid ' +
     'where kl.kid = ' + req.params.kid
 
-    console.log("kid: " + req.params.kid + "\nfid: "+ req.params.fid)
+    console.log("kid: " + req.params.kid)
     connection.query(query, req.params.kid, function (error, results, fields) {
         if (error) {
             res.status(404).send()
