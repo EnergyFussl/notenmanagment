@@ -72,11 +72,11 @@ app.get('/api/get_subjects-from-classes/:kid', function (req, res) {
     })
 });
 
-app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
-    let query = 'select te.tid, te.typ, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach, kl.kid, kl.klasse, avg(note) as average ' +
-    'from checks as te join subjects as fa join classes as kl join results as re ' +
-    'on te.kid = kl.kid and te.fid = fa.fid ' +
-    'where kl.kid = ? and fa.fid = ' + req.params.fid
+/*app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
+    let query = 'select te.tid, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach, kl.kid, kl.klasse ' +
+                'from checks as te join subjects as fa join classes as kl ' +
+                'on te.kid = kl.kid and te.fid = fa.fid ' +
+                'where kl.kid = ? and fa.fid = ' + req.params.fid
 
     console.log("kid: " + req.params.kid + "\nfid: "+ req.params.fid)
     connection.query(query, req.params.kid, function (error, results, fields) {
@@ -91,13 +91,13 @@ app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
             res.send(sendjson)
         }
     })
-});
+});*/
+
+// Average funktioniert noch nicht
 
 app.get('/api/get_classchecks/:kid', function (req, res) {
-    let query = 'select te.tid, te.typ, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach, kl.kid, kl.klasse, avg(note) as average ' +
-    'from checks as te join subjects as fa join classes as kl join results as re ' +
-    'on te.kid = kl.kid and te.fid = fa.fid ' +
-    'where kl.kid = ' + req.params.kid
+    let query = 'select te.tid, te.typ, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, ' +
+            'fa.fid, fa.fach, kl.kid, kl.klasse from checks as te join subjects as fa join classes as kl on te.kid = kl.kid and te.fid = fa.fid where kl.kid = ' + req.params.kid
 
     console.log("kid: " + req.params.kid)
     connection.query(query, req.params.kid, function (error, results, fields) {
@@ -130,6 +130,25 @@ app.get('/api/get_results/:tid', function (req, res) {
             console.log(results)
             let re = JSON.stringify(results)
             let sendjson = JSON.parse(re)
+            console.log(sendjson)
+
+            res.send(sendjson)
+        }
+    })
+});
+
+app.get('/api/get_all-subjects-from-student/:sid', function (req, res) {
+    let query = 'select distinct * from (select fa.fid, fa.fach, kl.kid, kl.klasse from checks as te join subjects as fa join classes as kl ' + 'on te.fid = fa.fid and te.kid = kl.kid where te.kid = ?) as allsubjects'
+
+    console.log("sid: " + req.params.sid)
+    connection.query(query, req.params.kid, function (error, results, fields) {
+        if (error) {
+            res.status(404).send()
+        } else {
+            console.log(results)
+            let re = JSON.stringify(results)
+            let sendjson = JSON.parse(re)
+            
             console.log(sendjson)
 
             res.send(sendjson)
