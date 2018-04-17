@@ -67,7 +67,7 @@ init()
 
 function activeTab() {
     
-      return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="./index.html">KlassenInfo</a></li><li><a href="./testhinz.html">Test Hinzufügen</a></li>'
+      return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="./index.html">KlassenInfo</a></li><li><a href="./suche.html">Suche</a></li><li><a href="./testhinz.html">Test Hinzufügen</a></li>'
     
 }
 function goBack() {

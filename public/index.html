@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.css">
-    <meta charset="utf-8">
-    <title>Notenmanagement</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  </head>
-  <body>
-  
-    <style>
-      .navbar-material .nav-wrapper .brand-logo img {
-        height: 55px;
-        margin-top:3%;
-        margin-bottom: 3%;
+
+<head>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.css">
+  <meta charset="utf-8">
+  <title>Notenmanagement</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+  <style>
+    .navbar-material .nav-wrapper .brand-logo img {
+      height: 55px;
+      margin-top: 3%;
+      margin-bottom: 3%;
     }
 
     @media (max-width: 600px) {
@@ -22,26 +24,33 @@
         height: 45px;
       }
     }
-    </style>
-    <div id="navDiv">
+  </style>
+  <div id="navDiv">
 
-    </div>
-
-  
-    <div class='container'>
-      <div class = 'col'>
-        <a class='dropdown-button btn'  style=width:100% href='#' data-activates='dropdownKlasse'>Klassen</a>
-      </div>
-    </div>
-  <div class='container'>
-    <div id = "klassenliste" class = 'col'>
-    <ul id='dropdownKlasse' class='dropdown-content'>
-      
-    </ul>
   </div>
-</div>
-   
-    
+
+
+  <div class='container'>
+    <div class='col'>
+      <a class='dropdown-button btn' style=width:100% href='#' data-activates='dropdownKlasse'>Klassen</a>
+    </div>
+  </div>
+  <div class='container'>
+    <div id="klassenliste" class='col'>
+      <ul id='dropdownKlasse' class='dropdown-content'>
+
+      </ul>
+    </div>
+  </div>
+
+
+  <center style="margin-top: 10%">
+    <p><img src="HTL_Braunau_Logo.svg.png" style="width: 25%; height: auto;" alt="Selfhtml"> </p>
+    <p>Created by Lukas Friedl and Alexander Leimer</p>
+
+  </center>
+
+
 
     <div id="TestTabelle"></div>
 
@@ -51,5 +60,6 @@
     <script src="./globalfunction.js"></script>
     <!--<script src="./meine_JS/serverhandler.js"></script>-->
     <script src="./index.js"></script>
-  </body>
+</body>
+
 </html>
