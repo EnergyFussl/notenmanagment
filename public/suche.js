@@ -1,26 +1,24 @@
 
 test=[
-    {"TID":"0","Typ":"Test", "Fach":"Fsst", "Info":"Datenbank","Datum":"20.2.2018","Notendurchschnitt":"3,2"},
+    /*{"TID":"0","Typ":"Test", "Fach":"Fsst", "Info":"Datenbank","Datum":"20.2.2018","Notendurchschnitt":"3,2"},
     {"TID":"1","Typ":"SA", "Fach":"Mathe","Datum":"15.2.2018","Notendurchschnitt":"2,2"},
     {"TID":"2","Typ":"SMÜP", "Fach":"Englisch","Datum":"20.2.2018","Notendurchschnitt":"2,8"},
-    {"TID":"3","Typ":"Test", "Fach":"KSN","Datum":"24.2.2018","Notendurchschnitt":"3,6"}
+    {"TID":"3","Typ":"Test", "Fach":"KSN","Datum":"24.2.2018","Notendurchschnitt":"3,6"}*/
 ]
 noten=[
-    {"SID":"0","Name":"Sepp", "Note":"4","Punkte":"12/20","Bemerkung":""},
+    /*{"SID":"0","Name":"Sepp", "Note":"4","Punkte":"12/20","Bemerkung":""},
     {"SID":"1","Name":"Hans", "Note":"","Punkte":"","Bemerkung":"gefehlt"},
     {"SID":"2","Name":"Franz", "Note":"4","Punkte":"10/20","Bemerkung":"4-"},
-    {"SID":"3","Name":"Hias", "Note":"2","Punkte":"19/20","Bemerkung":""}
+    {"SID":"3","Name":"Hias", "Note":"2","Punkte":"19/20","Bemerkung":""}*/
 ]
 fach =[
-    {"FID":"0","Name":"Fsst"},
+    /*{"FID":"0","Name":"Fsst"},
     {"FID":"1","Name":"Mathe"},
     {"FID":"2","Name":"Englisch"},
-    {"FID":"3","Name":"KSN"}
+    {"FID":"3","Name":"KSN"}*/
 ]
 init()
 //<a onclick="goBack()"class="btn waves-effect waves-light"><i class="material-icons middle">arrow_back</i></a></li>
-
-
 
 function activeTab() {
     

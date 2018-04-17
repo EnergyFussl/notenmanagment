@@ -156,6 +156,17 @@ app.get('/api/get_all-subjects-from-student/:sid', function (req, res) {
     })
 });*/
 
+app.post('/api/post_test', function(req, res) {
+    let tid = req.body.tid
+
+    if(tid == undefined){
+        console.log("post_test tid: " + tid)
+        res.send("Tid ist null")
+        return
+    }
+})
+
+
 // Auf diesen Port antwortet der Server
 app.listen(3000, function () {
     console.log('server running and listening on port 3000')
