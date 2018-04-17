@@ -17,6 +17,16 @@ fach =[
     {"FID":"2","Name":"Englisch"},
     {"FID":"3","Name":"KSN"}*/
 ]
+klassen=[
+
+]
+schueler=[
+
+]
+var kid
+var fach
+var bezeichnung
+var datum
 init()
 //<a onclick="goBack()"class="btn waves-effect waves-light"><i class="material-icons middle">arrow_back</i></a></li>
 
@@ -28,9 +38,10 @@ function activeTab() {
 function goBack() {
     window.history.back();
 }
-function init() {
 
-    //updatePersonData()
+function init() {
+    getclass()
+
 
 }
 function getcolor(){
@@ -120,9 +131,115 @@ function fachpressed(name,fachauswahl){
 
 }
 function dateneintragen(){
+    fach=document.querySelector("#fach").value
+    bezeichnung=document.querySelector("#beschreibung").value
+    datum=document.querySelector("#datepicker").value
+    console.log(fach+bezeichnung+datum+kid)
     let divEl = document.getElementById('main')
-    let htmlTxt='<form class="col s12"><div class="row"><div class="input-field col s6" id="schuelernamen"><div class="row"><div class="input-field col s6 s6"><select class="browser-default"><option value="" disabled selected>Schueler auswählen</option><option value="1">Sep</option><option value="2">Franz</option><option value="3">Hans</option></select></div></div><div class="row"><div class="input-field col s6"><input id="note" type="number" class="validate"><label for="note">Note</label></div></div><div class="row"><div class="input-field col s6"><input id="punkte" type="text" class="validate"><label for="punkte">Punkte</label></div></div><div class="row"><div class="input-field col s6"><input id="bemerkung" type="text" class="validate"><label for="bemerkung">Bemerkung</label></div><div class="input-field col s6"><button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i></button></div></div></form>'
+    let htmlTxt="<table><tr><th>Name</th><th>Note</th><th>Punkte</th><th>Bemerkung</th></tr>"
+    for(var i =0;i<schueler.length;i++){
+        htmlTxt+="<tr><td>"+schueler[i].fullname+"</td>"
+        htmlTxt+='<td><input id="note'+(i+1)+'" type="number" min="1" max="5"/></td>'
+        htmlTxt+='<td> <input id="punkte'+(i+1)+'" type="number"> </td>'
+        htmlTxt+='<td><input id="bemerk'+(i+1)+'" type="text"></td>'
+        htmlTxt+="</tr>"
+    }
+    htmlTxt+="</table>"
+    htmlTxt+='<button class="btn waves-effect waves-light" onclick="testeigeben()" type="submit" >Speichern<i class="material-icons right">send</i></button>'
+    //'<form class="col s12"><div class="row"><div class="input-field col s6" id="schuelernamen"><div class="row"><div class="input-field col s6 s6"><select class="browser-default"><option value="" disabled selected>Schueler auswählen</option><option value="1">Sep</option><option value="2">Franz</option><option value="3">Hans</option></select></div></div><div class="row"><div class="input-field col s6"><input id="note" type="number" class="validate"><label for="note">Note</label></div></div><div class="row"><div class="input-field col s6"><input id="punkte" type="text" class="validate"><label for="punkte">Punkte</label></div></div><div class="row"><div class="input-field col s6"><input id="bemerkung" type="text" class="validate"><label for="bemerkung">Bemerkung</label></div><div class="input-field col s6"><button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i></button></div></div></form>'
     divEl.innerHTML=htmlTxt
     //Matejka fragen wegen Schueler Noten eintragen altes System
 
+}
+function testeigeben(){
+    [{"sid":1,"fullname":"Loama","kid":1,"klasse":"5AHELS","note":1,"bemerkung":"1+","punkte":20,"bezeichnung":"PSK","datum":"11-04-2018","fach":"KSN"}]
+    var testergebnisse = []
+    for(var i=0;i<schueler.length;i++){
+        var note = document.querySelector("#note"+(i+1)).value
+        var punkte = document.querySelector("#punkte"+(i+1)).value
+        var bemerk =document.querySelector("#bemerk"+(i+1)).value
+        testergebnisse.push({"sid":(i+1),"fullname":schueler[i].fullname,"kid":kid,"klasse":klassen[kid-1].klasse,"note":note,"bemerkung":bemerk,"punkte":punkte,"bezeichnung":bezeichnung,"datum":datum,"fach":fach})
+
+    }
+    var xhr = new XMLHttpRequest();
+    var url = "http://localhost:3000/api/post_test";
+    xhr.open("POST", url, true);
+    xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var json = JSON.parse(xhr.responseText);
+            }
+        };
+        console.log(testergebnisse)
+    xhr.send(testergebnisse);
+    alert("Daten gespeichert")
+    window.location.href="http://localhost:3000/index.html"
+    
+    
+}
+function getclass() {
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("GET", "/api/get_all-classes/");
+    httpReq.onload = function () {
+        if (this.status == 200) {
+            klassen = JSON.parse(this.responseText)
+            console.log(klassen)
+            drawclasstable()
+        } else {
+            console.log('Response code ' + this.status)
+        }
+    };
+    httpReq.onerror = function () {
+        console.log("Error ")
+    };
+    httpReq.send()
+}
+function drawclasstable(){
+    let divEl = document.getElementById('dropdownKlasse')
+    console.log(divEl)
+    let htmlTxt = "<table><tbody>"
+    let z=-1
+    for(let i=0;i<7;i++){
+        htmlTxt+="<tr>"
+        for(let j=0;j<5;j++){
+            z++
+            htmlTxt+='<td><li><a onclick="klassepressed(this,'+klassen[z].kid+')" href="#klasse">'+klassen[z].klasse+'</a></td>'
+
+        }       
+        htmlTxt+="</tr>"
+    }
+    htmlTxt+="<tr>"
+    for(let i=0;i<4;i++){
+        z++
+        htmlTxt+='<td><li><a onclick="klassepressed(this,'+klassen[z].kid+')" href="#klasse">'+klassen[z].klasse+'</a></td>'
+    }
+    htmlTxt+="</tr></tbody></table>"
+    divEl.innerHTML=htmlTxt
+}
+function klassepressed(buttonEl,name){
+    var n=klassen[name-1].klasse
+    console.log(n)
+
+    var divEl = document.getElementById("klasse")
+    var htmlTxt =n
+    divEl.innerHTML=htmlTxt
+    kid=name
+    getschueler(name)
+    
+}
+function getschueler(klassenid){
+    var httpReq = new XMLHttpRequest();
+    httpReq.open("GET", "/api/get_all-students/"+klassenid);
+    httpReq.onload = function () {
+        if (this.status == 200) {
+            schueler = JSON.parse(this.responseText)
+            console.log(schueler)
+        } else {
+            console.log('Response code ' + this.status)
+        }
+    };
+    httpReq.onerror = function () {
+        console.log("Error ")
+    };
+    httpReq.send()
 }

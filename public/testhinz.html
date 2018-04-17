@@ -31,33 +31,42 @@
     <div class="row"  id ="main">
     <form class="col s12">
     <div class="row">
-        <div class="input-field col s6">
-            <input id="klasse" type="text" class="validate">
-            <label for="klasse">Klasse</label>
+        <div class="input-field col s12" >
+          <a class='dropdown-button btn'  style=width:100% href='#' data-activates='dropdownKlasse'>Klassen</a>
         </div>
     </div>
+    <div class='row'>
+      <div id = "klassenliste" class = 'col s12'>
+      <ul id='dropdownKlasse' class='dropdown-content'>
+        
+      </ul>
+    </div>
     <div class="row">
-        <div class="input-field col s6">
+      <div class="input-field col s12" id="klasse">
+      </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
             <input id="fach" type="text" class="validate">
             <label for="fach">Fach</label>
         </div>
     </div>
     <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
           <input id="beschreibung" type="text" class="validate">
           <label for="beschreibung">Beschreibung</label>
         </div>
     </div>
     
       <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
             
             <input type="date" class="datepicker" id="datepicker">
        
         </div>
         </div>
         <div class="row">
-        <div class="input-field col s6">
+        <div class="input-field col s12">
             <button class="btn waves-effect waves-light" onclick="dateneintragen()" type="submit" >Speichern
                 <i class="material-icons right">send</i>
               </button>
