@@ -67,7 +67,7 @@ init()
 
 function activeTab() {
     
-      return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="./index.html">KlassenInfo</a></li><li><a href="./suche.html">Suche</a></li><li><a href="./testhinz.html">Test Hinzufügen</a></li>'
+      return '<li class="active"><li><a href="./index.html" class="waves-effect waves-light btn"><i class="material-icons left">home</i>Home</a></li><li><a href="./index.html">KlassenInfo</a></li><li><a href="./testhinz.html">Test Hinzufügen</a></li>'
     
 }
 function goBack() {
@@ -193,9 +193,9 @@ function klassepressed(buttonEl,klassenid){
 }
 function drawtest(){
     let divel = document.getElementById('TestTabelle')
-    let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Typ</td> <th>Fach</th> <th>Thema</th> <th>Datum</th> <th>Notendurchschnitt</th> <th> </th> </tr> </thead> <tbody>'
+    let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Typ</td> <th>Fach</th> <th>Thema</th> <th>Datum</th> <th> </th> </tr> </thead> <tbody>'
     for(i =0;i<test.length;i++){
-        htmlTxt+="<tr> <td>"+test[i].typ+"</td> <td>"+test[i].fach+"</td> <td>"+test[i].bezeichnung+"</td> <td>"+test[i].datum+"</td> <td>"+test[i].average+"</td> <td><button onclick='testclicked("+test[i].tid+")'>Ansehen</button> </td> </tr>"
+        htmlTxt+="<tr> <td>"+test[i].typ+"</td> <td>"+test[i].fach+"</td> <td>"+test[i].bezeichnung+"</td> <td>"+test[i].datum+"</td> <td><button onclick='testclicked("+test[i].tid+")'>Ansehen</button> </td> </tr>"
     }
     htmlTxt+= " </tbody> </table></div></div>"
     divel.innerHTML=htmlTxt

@@ -72,7 +72,7 @@ app.get('/api/get_subjects-from-classes/:kid', function (req, res) {
     })
 });
 
-/*app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
+app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
     let query = 'select te.tid, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, fa.fid, fa.fach, kl.kid, kl.klasse ' +
                 'from checks as te join subjects as fa join classes as kl ' +
                 'on te.kid = kl.kid and te.fid = fa.fid ' +
@@ -91,9 +91,8 @@ app.get('/api/get_subjects-from-classes/:kid', function (req, res) {
             res.send(sendjson)
         }
     })
-});*/
+});
 
-// Average funktioniert noch nicht
 
 app.get('/api/get_classchecks/:kid', function (req, res) {
     let query = 'select te.tid, te.typ, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, ' +
@@ -137,6 +136,7 @@ app.get('/api/get_results/:tid', function (req, res) {
     })
 });
 
+/*
 app.get('/api/get_all-subjects-from-student/:sid', function (req, res) {
     let query = 'select distinct * from (select fa.fid, fa.fach, kl.kid, kl.klasse from checks as te join subjects as fa join classes as kl ' + 'on te.fid = fa.fid and te.kid = kl.kid where te.kid = ?) as allsubjects'
 
@@ -154,7 +154,7 @@ app.get('/api/get_all-subjects-from-student/:sid', function (req, res) {
             res.send(sendjson)
         }
     })
-});
+});*/
 
 // Auf diesen Port antwortet der Server
 app.listen(3000, function () {

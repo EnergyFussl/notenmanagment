@@ -77,7 +77,6 @@ insert into students values
 	(20,4,'Matthias','Weingartner'),
 	(21,4,'Philipp','Weiß');
 
-
 insert into classes values
 	(null,'1AHELS'),
 	(null,'2AHELS'),
