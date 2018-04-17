@@ -53,6 +53,26 @@ app.get('/api/get_all-subjects', function (req, res) {
     )
 });
 
+// new Function has to be in the Documentation
+app.get('/api/get_all-students/:kid', function (req, res) {
+    let query = 'select st.sid, CONCAT_WS(" ", `firstname`, `lastname`) AS `fullname`, kl.kid, kl.klasse from students as st join classes as kl on kl.kid = st.kid where kl.kid = ' + req.params.kid
+
+    console.log("kid: " + req.params.kid)
+    connection.query(query, req.params.kid, function (error, results, fields) {
+        if (error) {
+            res.status(404).send()
+        } else {
+            console.log(results)
+            let re = JSON.stringify(results)
+            let sendjson = JSON.parse(re)
+            
+            console.log(sendjson)
+
+            res.send(sendjson)
+        }
+    })
+});
+
 app.get('/api/get_subjects-from-classes/:kid', function (req, res) {
     let query = 'select distinct * from (select fa.fid, fa.fach, kl.kid, kl.klasse from checks as te join subjects as fa join classes as kl ' + 'on te.fid = fa.fid and te.kid = kl.kid where te.kid = ?) as allsubjects'
 
@@ -92,7 +112,6 @@ app.get('/api/get_classchecks/:kid/:fid', function (req, res) {
         }
     })
 });
-
 
 app.get('/api/get_classchecks/:kid', function (req, res) {
     let query = 'select te.tid, te.typ, te.bezeichnung, date_format(te.datum,"%d-%m-%Y") as datum, ' +
@@ -159,12 +178,9 @@ app.get('/api/get_all-subjects-from-student/:sid', function (req, res) {
 app.post('/api/post_test', function(req, res) {
     let tid = req.body.tid
 
-    if(tid == undefined){
-        console.log("post_test tid: " + tid)
-        res.send("Tid ist null")
-        return
-    }
-})
+    
+
+});
 
 
 // Auf diesen Port antwortet der Server
