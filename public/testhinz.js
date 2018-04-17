@@ -131,6 +131,7 @@ function fachpressed(name,fachauswahl){
 
 }
 function dateneintragen(){
+    typ=document.querySelector("#typ").value
     fach=document.querySelector("#fach").value
     bezeichnung=document.querySelector("#beschreibung").value
     datum=document.querySelector("#datepicker").value
@@ -148,22 +149,27 @@ function dateneintragen(){
     htmlTxt+='<button class="btn waves-effect waves-light" onclick="testeigeben()" type="submit" >Speichern<i class="material-icons right">send</i></button>'
     //'<form class="col s12"><div class="row"><div class="input-field col s6" id="schuelernamen"><div class="row"><div class="input-field col s6 s6"><select class="browser-default"><option value="" disabled selected>Schueler auswählen</option><option value="1">Sep</option><option value="2">Franz</option><option value="3">Hans</option></select></div></div><div class="row"><div class="input-field col s6"><input id="note" type="number" class="validate"><label for="note">Note</label></div></div><div class="row"><div class="input-field col s6"><input id="punkte" type="text" class="validate"><label for="punkte">Punkte</label></div></div><div class="row"><div class="input-field col s6"><input id="bemerkung" type="text" class="validate"><label for="bemerkung">Bemerkung</label></div><div class="input-field col s6"><button class="btn waves-effect waves-light" type="submit" name="action">Submit<i class="material-icons right">send</i></button></div></div></form>'
     divEl.innerHTML=htmlTxt
-    //Matejka fragen wegen Schueler Noten eintragen altes System
 
 }
 function testeigeben(){
-    [{"sid":1,"fullname":"Loama","kid":1,"klasse":"5AHELS","note":1,"bemerkung":"1+","punkte":20,"bezeichnung":"PSK","datum":"11-04-2018","fach":"KSN"}]
-    var testergebnisse = []
+    //[{"sid":1,"fullname":"Loama","kid":1,"klasse":"5AHELS","note":1,"bemerkung":"1+","punkte":20,"bezeichnung":"PSK","datum":"11-04-2018","fach":"KSN"}]
+    var testergebnisse = '['
     for(var i=0;i<schueler.length;i++){
         var note = document.querySelector("#note"+(i+1)).value
         var punkte = document.querySelector("#punkte"+(i+1)).value
         var bemerk =document.querySelector("#bemerk"+(i+1)).value
-        testergebnisse.push({"sid":(i+1),"fullname":schueler[i].fullname,"kid":kid,"klasse":klassen[kid-1].klasse,"note":note,"bemerkung":bemerk,"punkte":punkte,"bezeichnung":bezeichnung,"datum":datum,"fach":fach})
-
+        //testergebnisse.push({"sid":(i+1),"fullname":schueler[i].fullname,"kid":kid,"klasse":klassen[kid-1].klasse,"note":note,"bemerkung":bemerk,"punkte":punkte,"bezeichnung":bezeichnung,"datum":datum,"fach":fach})
+        testergebnisse+='{"sid":'+(i+1)+',"fullname":"'+schueler[i].fullname+'","kid":'+kid+',"klasse":"'+klassen[kid-1].klasse+'","note":'+note+',"bemerkung":"'+bemerk+'","punkte":'+punkte+',"bezeichnung":"'+bezeichnung+'","datum":"'+datum+'","fach":"'+fach+'","typ":"'+typ+'"},'
+        
     }
+
+    var testergebnisse = testergebnisse.substr(0, testergebnisse.length-1);
+    testergebnisse+=']'
+
     var xhr = new XMLHttpRequest();
     var url = "http://localhost:3000/api/post_test";
     xhr.open("POST", url, true);
+    console.log("nach xhttp.open")
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -172,8 +178,8 @@ function testeigeben(){
         };
         console.log(testergebnisse)
     xhr.send(testergebnisse);
-    alert("Daten gespeichert")
-    window.location.href="http://localhost:3000/index.html"
+    /*alert("Daten gespeichert")
+    window.location.href="http://localhost:3000/index.html"*/
     
     
 }

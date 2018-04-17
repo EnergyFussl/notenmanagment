@@ -1,5 +1,3 @@
-alle klassen
-alle fächer einer klasse
 alle überprüfungen - checks (fach join und notendurchschnitt) einer klasse
 alle ergebnisse - results (mit überprüfungen join) einer klasse
 alle ergebnisse - results (mit überprüfungen join) eines schülers mit richtigem fach
