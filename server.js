@@ -8,11 +8,11 @@ app.use(express.static('public'))
 app.use(bodyParser.json())
 
 let connection = mysql.createConnection({
-    host: "web02.energyfussl.at",
+    host: "82.211.19.79",
     //host: "192.168.0.24",
-    user: "lfrie_note",
+    user: "notenmanagment",
     password: "0pVDuG3OG8gi50lu",
-    database: "lfriedl_note",
+    database: "notenmanagment",
     multipleStatements : true
 
 })
@@ -178,7 +178,7 @@ app.get('/api/get_all-subjects-from-student/:sid', function (req, res) {
 app.post('/api/post_test', function(req, res) {
     let tid = req.body.tid
 
-    
+
 
 });
 
