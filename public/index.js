@@ -5,6 +5,13 @@ test=[
     {"TID":"2","Typ":"SMÜP", "Fach":"Englisch","Datum":"20.2.2018","Notendurchschnitt":"2,8"},
     {"TID":"3","Typ":"Test", "Fach":"KSN","Datum":"24.2.2018","Notendurchschnitt":"3,6"}*/
 ]
+
+tests=[
+    {"TID":"0","Typ":"Test", "Fach":"Fsst", "Info":"Datenbank","Datum":"20.2.2018","Note":"3","Punkte":"14","Bemerkung":""},
+    {"TID":"1","Typ":"SA", "Fach":"Mathe","Info":"Integrieren","Datum":"15.2.2018","Note":"2","Punkte":"14","Bemerkung":""},
+    {"TID":"2","Typ":"SMÜP", "Fach":"Englisch","Info":"Words","Datum":"20.2.2018","Note":"2","Punkte":"14","Bemerkung":""},
+    {"TID":"3","Typ":"Test", "Fach":"KSN","Info":"PSK","Datum":"24.2.2018","Note":"4","Punkte":"14","Bemerkung":""}
+]
 noten=[
     /*{"SID":"0","Name":"Sepp", "Note":"4","Punkte":"12/20","Bemerkung":""},
     {"SID":"1","Name":"Hans", "Note":"","Punkte":"","Bemerkung":"gefehlt"},
@@ -93,13 +100,15 @@ function testclicked(){
 }
 function namepressed(namenid){
     console.log(namenid)
-    let divel = document.getElementById('TestTabelle')
-    let htmlTxt = '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Fach</th> </tr> </thead> <tbody>'
-    for(i =0;i<fach.length;i++){
-        htmlTxt+="<tr> <td onclick='fachpressed("+namenid+","+fach[i].FID+")'>"+fach[i].Name+"</td></tr>"
+    let divEl=document.getElementById("TestTabelle")
+    let htmlTxt= '<div class="container"><div class ="col"><table class="striped"> <thead> <tr> <th>Fach</th> <th>Typ</th> <th>Beschreibung</th> <th>Datum</th> <th>Note</th> <th>Punkte</th> <th>Bemerkung</th> </tr> </thead> <tbody>'
+    for(i =0;i<tests.length;i++){
+        
+        htmlTxt+="<tr><td>"+tests[i].Fach+"</td><td>"+tests[i].Typ+"</td> <td>"+tests[i].Info+"</td> <td>"+tests[i].Datum+"</td><td>"+tests[i].Note+"</td><td>"+tests[i].Punkte+"</td><td>"+tests[i].Bemerkung+"</td></tr>"
     }
+   
     htmlTxt+= " </tbody> </table></div></div>"
-    divel.innerHTML=htmlTxt
+    divEl.innerHTML=htmlTxt
 
   
 }
