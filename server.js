@@ -260,6 +260,8 @@ app.post('/api/post_test', function (req, res) {
     })
 });
 
+// Noch nicht fertig
+/*
 app.get('/api/get_fachid/:fach', function (req, res) {
     let query = "SELECT fid FROM subjects WHERE fach LIKE " + "'" + req.params.fach + "'"
 
@@ -275,7 +277,7 @@ app.get('/api/get_fachid/:fach', function (req, res) {
         }
     })
 });
-
+*/
 
 // Auf diesen Port antwortet der Server
 app.listen(3000, function () {
